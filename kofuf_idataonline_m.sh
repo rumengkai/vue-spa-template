@@ -13,3 +13,4 @@ echo 'BACKUPS SUCCESS'
 rm -rf ${prodir}${name}/*
 cp -r ./dist/* ${prodir}${name}
 echo 'UPDATE SUCCESS'
+rm -rf ./dist
