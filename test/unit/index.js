@@ -2,7 +2,7 @@
 /* eslint-disable no-extend-native */
 Function.prototype.bind = require('function-bind');
 
-window.fetch = require('whatwg-fetch');
+// window.fetch = require('whatwg-fetch');
 window.Promise = require('es6-promise').Promise;
 window.console.error = function (err) {
 };

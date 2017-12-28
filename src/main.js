@@ -7,8 +7,11 @@ import VueRouter from 'vue-router';
 import App from './app';
 import routes from './routes';
 import storeOption from './vuex/store';
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 
 Vue.use(Vuex);
+Vue.use(MintUI);
 Vue.use(VueRouter);
 
 // 创建一个路由对象用于管理页面的路由

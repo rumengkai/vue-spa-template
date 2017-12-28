@@ -2,7 +2,7 @@
   <div class="hello">
     <c-title :text="title"></c-title>
     <img class="logo" src="../assets/images/logo.png">
-    <p class="welcome">欢迎使用 vue</p>
+    <p class="welcome">欢迎使用ddd vue</p>
     <div v-html="content"></div>
   </div>
 </template>
@@ -10,6 +10,7 @@
 <script>
 
   import {mapState} from 'vuex';
+  import { getActivityList } from '@/api/activity';
   import cTitle from 'components/title';
 
   export default {
@@ -21,8 +22,9 @@
     },
     methods: {
       async getContent () {
-        const response = await fetch('/api/hello');
-        this.content = await response.text();
+        const response = await getActivityList({}).then(res => {
+					console.log(res);
+				});
       }
     },
     mounted () {
