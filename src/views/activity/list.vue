@@ -1,8 +1,6 @@
 <template>
-  <div class="hello">
-    <c-title :text="title"></c-title>
-    <p class="welcome">欢迎使用 vue</p>
-    <div v-html="content"></div>
+  <div class="content" v-if="showContent">
+    <activity-list :list="dataInfo.items"></activity-list>
   </div>
 </template>
 
@@ -10,44 +8,39 @@
 
   import {mapState} from 'vuex';
   import { getActivityList } from '@/api/activity';
-  import cTitle from 'components/title';
+  import ActivityList from 'components/Activity/List';
 
   export default {
     data () {
       return {
-        title: 'Hello Vue!',
-        content: ''
+				showContent: false,
+        dataInfo: {},
       }
-    },
+		},
+    components: {ActivityList},
     methods: {
       async getContent () {
         const response = await getActivityList({}).then(res => {
-					console.log(res);
+					if (!res.status) {
+						this.showContent = true
+						this.dataInfo = res
+					}
 				});
       }
     },
     mounted () {
       this.$store.commit('message', '欢迎使用 vue！');
       this.getContent();
-    },
-
-    components: {cTitle}
+    }
   }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" rel="stylesheet/scss" scoped>
-  h1 {
-    color: #42b983;
-  }
-
-  .logo {
-    width: 100px;
-    height: 100px;
-    a {
-      color: #42b983;
-      text-decoration: none;
-    }
-  }
+body{
+	background: #f5f5f5;
+}
+.content{
+	background: #f5f5f5;
+}
 </style>

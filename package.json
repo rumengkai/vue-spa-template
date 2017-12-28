@@ -1,8 +1,8 @@
 {
-	"name": "my-first-vue-app",
+	"name": "gongfu",
 	"version": "1.0.0",
 	"description": "A Vue.js project",
-	"author": "hanan",
+	"author": "rumengkai",
 	"private": true,
 	"scripts": {
 		"dev": "node build/dev-server.js",

@@ -1,10 +1,17 @@
 <template>
-  <h1 v-if="!hide">{{ text }}</h1>
+	<div>
+		<h1 v-for="(item,index) in list" :key="index">{{ item.name }}</h1>
+	</div>
 </template>
 
 <script>
   export default {
-    props: ['text', 'hide'],
+    props: {
+			list: {
+				type: Array,
+				default: []
+			}
+		},
     mounted: function () {
       document.title = this.text;
     }

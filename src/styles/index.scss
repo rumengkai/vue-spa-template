@@ -1,0 +1,99 @@
+@import './theme.scss';
+@import './mixin.scss';
+@import './transition.scss';
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+div:focus{
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+//main-container全局样式
+.app-main{
+  min-height: 100%
+}
+
+.editor-container .CodeMirror {
+  height: 100%!important;
+}
+
+.app-container {
+  padding: 20px;
+}
+
+.search-form{
+  display: block;
+  margin: 0px 0 0px;
+  div{
+    display: inline-block
+  }
+}
+.el-select>.el-input{
+  width: 140px !important;
+}
+.lineheard{
+  line-height: 36px;
+  line-height: 36px;
+  padding: 10px 0;
+  box-sizing: border-box;
+  .right{
+    float: right;
+  }
+}
+.sub-navbar{
+	background:#d0d0d0;
+	text-align: right;
+	height: 50px;	
+	padding: 5px 10px;
+}
+.sub-navbar.draft{
+	background:#d0d0d0;
+	text-align: right;
+	height: 50px;	
+	padding: 5px 10px;
+}
+.sub-navbar.published{
+	background:#2178f1;
+	text-align: right;
+	height: 50px;	
+	padding: 5px 10px;
+}

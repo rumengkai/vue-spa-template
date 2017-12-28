@@ -12,7 +12,7 @@ module.exports = {
 			"status":0,
 			"items":[
 					{
-							"start_time":"2017-12-07",
+							"start_time":"1513913181251",
 							"state_val":"活动结束",
 							"address":"北京",
 							"intro":"一句话简介",
@@ -20,7 +20,8 @@ module.exports = {
 							"type_val":"活动报名",
 							"id":3,
 							"state":1,
-							"type":1
+							"type":1,
+							"banner":"http://static0.kofuf.com/1513863134099.png"
 					}
 			],
 			"pn":0,

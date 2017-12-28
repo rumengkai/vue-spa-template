@@ -10,6 +10,13 @@ import storeOption from './vuex/store';
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
+import * as filters from './filters' // global filter
+// register global utility filters.
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
+
+
 Vue.use(Vuex);
 Vue.use(MintUI);
 Vue.use(VueRouter);
