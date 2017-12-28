@@ -2,16 +2,22 @@
  * @file
  * Created by hanan on 16/10/15.
  */
-const Hello = r => require(['views/hello'], r);
+const Index = r => require(['views/index'], r);
 const NotFound = r => require(['views/notfound'], r);
+const ActivityList = r => require(['views/activity/list'], r);
+const ActivityItems = r => require(['views/activity/items'], r);
+const ActivityDetail = r => require(['views/activity/detail'], r);
 
 // 根目录
 const rootPath = '';
 
 // 页面路由
 const routes = [
-  {path: '', redirect: {name: 'hello'}},
-  {path: '/hello', component: Hello, name: 'hello'}
+  {path: '', redirect: {name: 'activity-list'}},
+  {path: '/index', component: Index, name: 'index'},
+  {path: '/activity/list', component: ActivityList, name: 'activity-list'},
+  {path: '/activity/items', component: ActivityItems, name: 'activity-items'},
+  {path: '/activity/detail', component: ActivityDetail, name: 'activity-detail'}
 ].map(route => {
   route.path = rootPath + route.path;
   return route;
