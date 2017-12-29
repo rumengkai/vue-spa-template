@@ -1,12 +1,12 @@
 import axios from 'axios'
 // import store from '../vuex'
 import { getToken , removeToken } from '@/utils/auth'
-import { Toast } from 'mint-ui';
+import { Toast } from 'vant';
 import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css'// Progress 进度条样式
 import Qs from 'qs'
 
-const mook = true
+const mook = false
 
 // 创建axios实例
 const service = axios.create({

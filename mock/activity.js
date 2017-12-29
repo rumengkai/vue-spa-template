@@ -22,7 +22,19 @@ module.exports = {
 							"state":1,
 							"type":1,
 							"banner":"http://static0.kofuf.com/1513863134099.png"
-					}
+					},
+					{
+						"start_time":"1513913181251",
+						"state_val":"活动结束",
+						"address":"北京",
+						"intro":"一句话简介",
+						"name":"标题123333",
+						"type_val":"活动报名",
+						"id":3,
+						"state":1,
+						"type":1,
+						"banner":"http://static0.kofuf.com/1513863134099.png"
+				}
 			],
 			"pn":0,
 			"total":2,

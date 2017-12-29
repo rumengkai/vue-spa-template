@@ -16,8 +16,8 @@ const routes = [
   {path: '', redirect: {name: 'activity-list'}},
   {path: '/index', component: Index, name: 'index'},
   {path: '/activity/list', component: ActivityList, name: 'activity-list'},
-  {path: '/activity/items', component: ActivityItems, name: 'activity-items'},
-  {path: '/activity/detail', component: ActivityDetail, name: 'activity-detail'}
+  {path: '/activity/items/:id', component: ActivityItems, name: 'activity-items'},
+  {path: '/activity/detail/:id', component: ActivityDetail, name: 'activity-detail'}
 ].map(route => {
   route.path = rootPath + route.path;
   return route;

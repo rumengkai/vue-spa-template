@@ -1,37 +1,68 @@
 <template>
-  <div class="hello">
-    <c-title :text="title"></c-title>
-    <p class="welcome">欢迎使用 vue</p>
-    <div v-html="content"></div>
+  <div class="content" v-if="showContent">
+		<div v-for="(item,index) in dataInfo.items" :key="index">
+			<li v-if="index>=pn*dataInfo.page_count&&index<(pn+1)*dataInfo.page_count">
+				<div v-if="item.type==2">
+					<form-input :data="item"></form-input>
+				</div>
+				{{index}}{{item.name}}
+			</li>
+		</div>
+		<footer class="fixed-bottom" v-if="!submit" @click="nextPage()">
+			<p>下一页</p>
+		</footer>
+		<footer class="fixed-bottom" v-else @click="submitForm()">
+			<p>提交</p>
+		</footer>
   </div>
 </template>
 
 <script>
-
+	import Vue from 'vue'
+	import { CellGroup, Field , Checkbox, CheckboxGroup} from 'vant';
   import {mapState} from 'vuex';
-  import { getActivityList } from '@/api/activity';
-  import cTitle from 'components/title';
-
+  import { getActivityItems } from '@/api/activity'
+  import FormInput from '@/components/Form/Input'
+	Vue.use(Field)
+	Vue.use(Checkbox);
+	Vue.use(CellGroup);
+	Vue.use(CheckboxGroup);
   export default {
     data () {
       return {
-        title: 'Hello Vue!',
-        content: ''
+				id:this.$route.params.id,
+				showContent: false,
+				dataInfo: {},
+				pn: 0,
+				submit: false
       }
     },
     methods: {
-      async getContent () {
-        const response = await getActivityList({}).then(res => {
-					console.log(res);
+      async fetchDate () {
+        const response = await getActivityItems({target_id:this.id}).then(res => {
+					console.log(JSON.stringify(res));
+					if (!res.status) {
+						this.showContent = true
+						this.dataInfo = res
+						this.submit = this.pn+1 >= Math.ceil(this.dataInfo.items.length/this.dataInfo.page_count)
+					}
 				});
-      }
+			},
+			nextPage () {
+				this.pn++
+				if (this.pn+1 >= Math.ceil(this.dataInfo.items.length/this.dataInfo.page_count)) {
+					this.submit = true
+				}
+			},
+			submitForm () {
+				console.log('提交');
+			}
     },
     mounted () {
-      this.$store.commit('message', '欢迎使用 vue！');
-      this.getContent();
+      this.fetchDate();
     },
 
-    components: {cTitle}
+    components: {Field,FormInput}
   }
 
 </script>

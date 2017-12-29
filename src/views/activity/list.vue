@@ -1,6 +1,8 @@
 <template>
   <div class="content" v-if="showContent">
     <activity-list :list="dataInfo.items"></activity-list>
+    <activity-list :list="dataInfo.items"></activity-list>
+    <activity-list :list="dataInfo.items"></activity-list>
   </div>
 </template>
 
@@ -19,7 +21,7 @@
 		},
     components: {ActivityList},
     methods: {
-      async getContent () {
+      async fetchDate () {
         const response = await getActivityList({}).then(res => {
 					if (!res.status) {
 						this.showContent = true
@@ -29,18 +31,14 @@
       }
     },
     mounted () {
-      this.$store.commit('message', '欢迎使用 vue！');
-      this.getContent();
+      this.fetchDate();
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" rel="stylesheet/scss" scoped>
-body{
-	background: #f5f5f5;
-}
 .content{
-	background: #f5f5f5;
+	height: 100%;
 }
 </style>

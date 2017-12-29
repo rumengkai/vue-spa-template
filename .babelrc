@@ -1,5 +1,5 @@
 {
   "presets": ["es2015", "stage-3"],
-  "plugins": ["transform-async-to-generator", "add-module-exports", "transform-runtime"],
+  "plugins": ["transform-async-to-generator", "add-module-exports", "transform-runtime",["import", { "libraryName": "vant", "style": true }]],
   "comments": false
 }

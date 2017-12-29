@@ -5,10 +5,10 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import VueRouter from 'vue-router';
 import App from './app';
+import './utils/common';
+import './styles/index.scss';
 import routes from './routes';
 import storeOption from './vuex/store';
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
 
 import * as filters from './filters' // global filter
 // register global utility filters.
@@ -16,9 +16,7 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
-
 Vue.use(Vuex);
-Vue.use(MintUI);
 Vue.use(VueRouter);
 
 // 创建一个路由对象用于管理页面的路由

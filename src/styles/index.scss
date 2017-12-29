@@ -2,98 +2,157 @@
 @import './mixin.scss';
 @import './transition.scss';
 
-body {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+html, body, div, span, applet, object, iframe, h1, h2, h3,
+h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address,
+big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot,
+thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    vertical-align: baseline;
 }
+html,body{
+  max-width: 680px;
+  margin: auto;
+  font-size: 12px;
+  height: auto;
+  /*-webkit-touch-callout: none      /* disables the callout 禁止文件选中*/
+}
+html{
+  height: 100%;
+}
+:focus {
+    outline: 0;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+}
+a img, iframe {
+    border: none;
+}
+a{
+  text-decoration:none;
+}
+ol, ul ,li{
+    list-style: none;
+}
+input, textarea, select, button {
+    font-size: 100%;
+    font-family: inherit;
+}
+select {
+    margin: inherit;
+}
+/* Fixes incorrect placement of numbers in ol’s in IE6/7 */
 
-html {
-  box-sizing: border-box;
+del {
+    text-decoration: line-through;
 }
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+a[href*="www.cnzz.com/stat/website.php"] {
+  display: none;
 }
-
-div:focus{
-  outline: none;
+.float-left {
+    float: left;
 }
-
-a:focus,
-a:active {
-  outline: none;
-}
-
-a,
-a:focus,
-a:hover {
-  cursor: pointer;
-  color: inherit;
-  text-decoration: none;
-}
-
-.clearfix {
-  &:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-  }
-}
-
-//main-container全局样式
-.app-main{
-  min-height: 100%
-}
-
-.editor-container .CodeMirror {
-  height: 100%!important;
-}
-
-.app-container {
-  padding: 20px;
-}
-
-.search-form{
-  display: block;
-  margin: 0px 0 0px;
-  div{
-    display: inline-block
-  }
-}
-.el-select>.el-input{
-  width: 140px !important;
-}
-.lineheard{
-  line-height: 36px;
-  line-height: 36px;
-  padding: 10px 0;
-  box-sizing: border-box;
-  .right{
+.float-right {
     float: right;
-  }
 }
-.sub-navbar{
-	background:#d0d0d0;
-	text-align: right;
-	height: 50px;	
-	padding: 5px 10px;
+.clear {
+    clear: both;
 }
-.sub-navbar.draft{
-	background:#d0d0d0;
-	text-align: right;
-	height: 50px;	
-	padding: 5px 10px;
+/* == clearfix == */
+.clearfix:after {
+    content: '.';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
 }
-.sub-navbar.published{
-	background:#2178f1;
-	text-align: right;
-	height: 50px;	
-	padding: 5px 10px;
+.clearfix {display: inline-block;}
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+strong{
+  font-weight: 900;
+}
+
+body {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Chrome/Safari/Opera */
+	-khtml-user-select: none; /* Konqueror */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
+
+.nstep{
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-width: 1px 1px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: relative;
+  top: -2px;
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  right: 2px;
+}
+.step-l{
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-width:0 0 2px 2px ;
+  border-color: #C8C8CD;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: relative;
+  top: -2px;
+  position: absolute;
+  top: 50%;
+  right: 2px;
+}
+.ell{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.weui-cell{
+  font-size: 13px;
+}
+
+.ell-2{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  -webkit-box-orient: vertical !important;
+}
+.ell-3{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  -webkit-box-orient: vertical !important;
+}
+.fixed-bottom{
+	position: absolute;
+	bottom: 0;
+	height: .9rem;
+	text-align: center;
+	background: $baseColor;
+	width: 100%;
+	line-height: .9rem;
 }
